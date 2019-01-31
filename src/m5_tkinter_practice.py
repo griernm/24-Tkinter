@@ -3,8 +3,8 @@ This project lets you try out Tkinter/Ttk and practice it!
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Nathalie Grier.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import tkinter
 from tkinter import ttk
@@ -12,29 +12,67 @@ from tkinter import ttk
 
 def main():
     """ Constructs a GUI with stuff on it. """
+
+    window = tkinter.Tk()
+
+    print('Type in the first box and press Chance, try to get the response Goodbye.')
+    print('Type a string in the first box and an integer in the second box, press Print Entry.')
+
+    frame1 = ttk.Frame(window, padding=30)
+    frame1.grid()
+
+    print_hello_button = ttk.Button(frame1, text='Hello')
+    print_hello_button['command'] = (lambda: print('Hello'))
+    print_hello_button.grid()
+
+    entry_box = ttk.Entry(frame1)
+    entry_box.grid()
+    chance_entry_box = ttk.Button(frame1, text='Chance')
+    chance_entry_box['command'] = (lambda: hello_goodbye(entry_box))
+    chance_entry_box.grid()
+
+    new_entry_box = ttk.Entry(frame1)
+    new_entry_box.grid()
+    print_new = ttk.Button(frame1, text='Print Entry')
+    print_new['command'] = (lambda: number(new_entry_box, entry_box))
+    print_new.grid()
+
+    window.mainloop()
+
+def hello_goodbye(entry_box):
+    ok = 'ok'
+    if entry_box.get() == ok:
+        print('Hello')
+    else:
+        print('Goodbye')
+
+def number(new, old):
+    num = int(new.get())
+    print(old.get() * num)
+
     # -------------------------------------------------------------------------
-    # TODO: 2. After reading and understanding the m1e module,
+    # DONE: 2. After reading and understanding the m1e module,
     #   ** make a window that shows up. **
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 3. After reading and understanding the m2e module,
+    # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 4. After reading and understanding the m2e module,
+    # DONE: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # DONE: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
@@ -43,7 +81,7 @@ def main():
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -67,7 +105,7 @@ def main():
     ####################################################################
 
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
 
 
