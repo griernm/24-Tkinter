@@ -15,11 +15,12 @@ def main():
 
     window = tkinter.Tk()
 
-    print('Type in the first box and press Chance, try to get the response Goodbye.')
-    print('Type a string in the first box and an integer in the second box, press Print Entry.')
-
     frame1 = ttk.Frame(window, padding=30)
     frame1.grid()
+
+    what_todo_button = ttk.Button(frame1, text='What to do?')
+    what_todo_button['command'] = (lambda: to_do())
+    what_todo_button.grid()
 
     print_hello_button = ttk.Button(frame1, text='Hello')
     print_hello_button['command'] = (lambda: print('Hello'))
@@ -49,6 +50,11 @@ def hello_goodbye(entry_box):
 def number(new, old):
     num = int(new.get())
     print(old.get() * num)
+
+def to_do():
+    print('Press Hello to print the word Hello')
+    print('Type in the first box and press Chance, try to get the response Goodbye.')
+    print('Type a string in the first box and an integer in the second box, press Print Entry.')
 
     # -------------------------------------------------------------------------
     # DONE: 2. After reading and understanding the m1e module,
